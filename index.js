@@ -12,15 +12,16 @@ function submitData(name, email) {
   .then(function (response) {
     return response.json();
   })
-  .then(function (object) {
+  .then((object) => {
     const body = document.querySelector('body');
     const div = document.createElement('div')
     div.innerHTML = object.id
     body.appendChild(div)
   })
-  .catch(function (object) {
+  .catch((object) => {
     const body = document.querySelector('body');
     const div = document.createElement('div')
     div.innerHTML = object
-    body.appendChild(div)  })
+    body.appendChild(div)  
+  })
 }
