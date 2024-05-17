@@ -1,45 +1,22 @@
-// const formData = {
-//   dogName: "Byron",
-//   dogBreed: "Poodle",
-// };
-
-// const configurationObject = {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//     "Accept": "application/json",
-//   },
-//   body: JSON.stringify(formData),
-// };
-
-// fetch("http://localhost:3000/dogs", configurationObject)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (object) {
-//     console.log(object);
-// });
-
-const formData = {
-  name: "Steve",
-  email: "steve@steve.com",
-};
-
-const configurationObject = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-  },
-  body: JSON.stringify(formData),
-};
-
-function submitData() {
+function submitData(name, email) {
+  const configurationObject = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify({name: name, email: email}),
+  };
   return fetch("http://localhost:3000/users", configurationObject)
   .then(function (response) {
     return response.json();
   })
   .then(function (object) {
-    console.log(object);
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.")
+    console.log(object.id);
+    const body = document.querySelector('body');
+    const div = document.createElement('div')
+    div.innerHTML = object.id
+    body.appendChild(div)
   })
 }
